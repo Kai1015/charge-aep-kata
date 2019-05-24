@@ -19,16 +19,21 @@ public class SlackUserService implements UserService {
 	@Value("${slackToken}")
 	private String token;
 	
-	public Optional<User> getUser(String id) {
-		String uri = buildUri(id);
-		SlackResponse response = restTemplate.getForObject(uri, SlackResponse.class);
-		boolean responseStatus = response.isOk();
+	public Optional<User> getUser(String id) throws SlackExceptionResponse {
+		try {
+			String uri = buildUri(id);
+			SlackResponse response = restTemplate.getForObject(uri, SlackResponse.class);
+			boolean responseStatus = response.isOk();
 		
-		if (responseStatus == true) {
-			return Optional.of(response.getUser());
+			if (responseStatus == true) {
+				return Optional.of(response.getUser());
+			} else {
+				return Optional.empty();
+			}
+			
+		} catch (Exception e) {
+			throw new SlackExceptionResponse("Error querying Slack.");
 		}
-		
-		return Optional.empty();
 	}
 
 	private String buildUri(String id) {

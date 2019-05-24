@@ -5,5 +5,5 @@ import java.util.Optional;
 import com.kaiherrera.chargeaep.domain.User;
 
 public interface UserService {
-	Optional<User> getUser(String id);
+	Optional<User> getUser(String id) throws Exception;
 }

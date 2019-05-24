@@ -61,4 +61,17 @@ public class SlackUserServiceTest {
 		assertEquals(false, testUser);
 	}
 	
+	@Test
+	public void exceptionThrownForBadResponse() throws Exception {
+		Mockito
+			.when(restTemplate.getForObject("https://slack.com/api/users.info?token=test&user=test&pretty=1", SlackResponse.class))
+			.thenReturn(null);
+		
+		try {
+			service.getUser("test");
+		} catch (Exception e) {
+			assertEquals(e.getMessage(), "Error querying Slack.");
+		}
+	}
+	
 }
