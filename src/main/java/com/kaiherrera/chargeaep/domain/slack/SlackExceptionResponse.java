@@ -1,4 +1,4 @@
-package com.kaiherrera.chargeaep.service.slack;
+package com.kaiherrera.chargeaep.domain.slack;
 
 @SuppressWarnings("serial")
 public class SlackExceptionResponse extends Exception {

@@ -3,6 +3,7 @@ package com.kaiherrera.chargeaep.service.slack;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonTypeInfo.As;
+import com.kaiherrera.chargeaep.domain.slack.SlackErrorResponse;
 import com.kaiherrera.chargeaep.domain.slack.SlackUser;
 import com.kaiherrera.chargeaep.domain.slack.SlackUserResponse;
 

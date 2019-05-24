@@ -1,6 +1,7 @@
-package com.kaiherrera.chargeaep.service.slack;
+package com.kaiherrera.chargeaep.domain.slack;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.kaiherrera.chargeaep.service.slack.SlackResponse;
 
 public class SlackErrorResponse extends SlackResponse {
 	

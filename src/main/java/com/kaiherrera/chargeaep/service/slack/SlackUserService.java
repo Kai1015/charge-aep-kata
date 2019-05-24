@@ -9,6 +9,7 @@ import org.springframework.web.util.UriComponents;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import com.kaiherrera.chargeaep.domain.User;
+import com.kaiherrera.chargeaep.domain.slack.SlackExceptionResponse;
 import com.kaiherrera.chargeaep.service.UserService;
 
 public class SlackUserService implements UserService {

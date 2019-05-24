@@ -19,7 +19,7 @@ import org.springframework.web.client.RestTemplate;
 import com.kaiherrera.chargeaep.domain.User;
 import com.kaiherrera.chargeaep.domain.slack.SlackUser;
 import com.kaiherrera.chargeaep.domain.slack.SlackUserResponse;
-import com.kaiherrera.chargeaep.service.slack.SlackErrorResponse;
+import com.kaiherrera.chargeaep.domain.slack.SlackErrorResponse;
 import com.kaiherrera.chargeaep.service.slack.SlackResponse;
 import com.kaiherrera.chargeaep.service.slack.SlackUserService;
 
