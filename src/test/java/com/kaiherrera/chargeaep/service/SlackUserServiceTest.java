@@ -19,6 +19,7 @@ import org.springframework.web.client.RestTemplate;
 import com.kaiherrera.chargeaep.domain.User;
 import com.kaiherrera.chargeaep.domain.slack.SlackUser;
 import com.kaiherrera.chargeaep.domain.slack.SlackUserResponse;
+import com.kaiherrera.chargeaep.service.slack.SlackErrorResponse;
 import com.kaiherrera.chargeaep.service.slack.SlackResponse;
 import com.kaiherrera.chargeaep.service.slack.SlackUserService;
 
@@ -48,6 +49,16 @@ public class SlackUserServiceTest {
 		Optional<User> testUser = service.getUser("test");
 		
 		assertEquals("name", testUser.get().getName());
+	}
+	
+	@Test
+	public void invalidIdReturnsEmptyObject() throws Exception {
+		Mockito
+			.when(restTemplate.getForObject("https://slack.com/api/users.info?token=test&user=test&pretty=1", SlackResponse.class))
+			.thenReturn(new SlackErrorResponse(false, ""));
+		
+		boolean testUser = service.getUser("test").isPresent();
+		assertEquals(false, testUser);
 	}
 	
 }

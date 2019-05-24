@@ -12,7 +12,8 @@ import com.kaiherrera.chargeaep.domain.slack.SlackUserResponse;
 		property = "ok"
 )
 @JsonSubTypes({
-	@JsonSubTypes.Type(value = SlackUserResponse.class, name = "true")
+	@JsonSubTypes.Type(value = SlackUserResponse.class, name = "true"),
+	@JsonSubTypes.Type(value = SlackErrorResponse.class, name = "false")
 })
 abstract public class SlackResponse {
 	
@@ -21,6 +22,10 @@ abstract public class SlackResponse {
 	}
 	
 	public SlackUser getUser() {
+		return null;
+	}
+
+	public String getError() {
 		return null;
 	}
 }
